@@ -1,0 +1,12 @@
+name: PICARD
+title: PICARD
+username: josh-betz
+account: josh-betz
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 11282057
+bundleId: 8278052
+url: https://josh-betz.shinyapps.io/PICARD/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE

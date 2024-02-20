@@ -1,0 +1,161 @@
+
+
+
+<div id="designing-precision-adaptive-randomized-trials" class="section level3">
+<h3>Designing Precision Adaptive Randomized Trials</h3>
+<p>Investigators are faced with many challenges in designing efficient,
+ethical randomized trials due to many competing demands. A trial must
+collect enough information to identify meaningful benefits or harms with
+a desired probability, while also minimizing potential harm and
+suboptimal treatment of participants. Satisfying these competing demands
+is further complicated by the limited and imprecise information
+available during the design of a study.</p>
+<p>Rather than planning analyses around sample sizes, investigators can
+plan analyses which occur when a specified level of precision is
+reached: this is known as information monitoring <span class="citation">(Mehta and Tsiatis 2001)</span>. A precision-adaptive
+design can reduce the risk of under- or overpowered trials by collecting
+data until the precision is sufficient to conduct analyses. The
+precision of an estimator is simply the reciprocal of the variance of
+the estimator. Since this is unknown in practice, the variance is
+estimated using the square of the standard error of the estimator.</p>
+<p>We can estimate the precision required to achieve power <span class="math inline">\((1 - \beta)\)</span> to identify a treatment
+effect <span class="math inline">\(\delta\)</span> with a <span class="math inline">\(s\)</span>-sided test with type I error rate <span class="math inline">\(\alpha\)</span> using:</p>
+<p><span class="math display">\[\mathcal{I} = \left(\frac{Z_{\alpha/s} +
+Z_{\beta}}{\delta}\right)^2 \approx
+\frac{1}{\left(SE(\hat{\delta})\right)^2} =
+\frac{1}{Var(\hat{\delta})}\]</span> This uses the square of the
+empirical standard error (or the empirical variance estimate) to measure
+the precision to which the treatment effect <span class="math inline">\(\delta\)</span> can be measured with the data in
+hand. A precision-adaptive design can reduce the risk of under- or
+overpowered trials by collecting data until the precision is sufficient
+to conduct analyses.</p>
+<p>Let <span class="math inline">\(T\)</span> denote treatment and <span class="math inline">\(C\)</span> denote control, and <span class="math inline">\(Y^{(A)}\)</span> denote the outcome of interest
+under treatment assigment <span class="math inline">\(A\)</span>, where
+<span class="math inline">\(A = 1\)</span> indicates assignment to the
+treatment arm and <span class="math inline">\(A = 0\)</span> denotes
+assignment to the control arm.</p>
+<p>For a continuous outcome, the required information to estimate the
+difference in means <span class="math inline">\(\delta_{DIM} =
+E[Y^{(1)}] - E[Y^{(0)}]\)</span> depends on the sample size and
+variances of outcomes in each treatment arm:</p>
+<p><span class="math display">\[SE(\delta) =
+\sqrt{\frac{\sigma^{2}_{T}}{n_{T}} +
+\frac{\sigma^{2}_{C}}{n_{C}}}\]</span></p>
+<p>For a binary outcome, the required information to estimate the risk
+difference <span class="math inline">\(\delta_{RD} = E[Y^{(1)}] -
+E[Y^{(0)}]\)</span> depends on the response rate in the control arm
+<span class="math inline">\((\pi_{C} = \pi_{T} - \delta)\)</span>:</p>
+<p><span class="math display">\[SE(\delta) = \sqrt{\frac{\pi_{T}(1 -
+\pi_{T})}{n_{T}} + \frac{\pi_{C}(1 - \pi_{C})}{n_{C}}}\]</span></p>
+<p>For an ordinal outcome with <span class="math inline">\(K\)</span>
+categories, let <span class="math inline">\(\pi_{A}^{K} = Pr\{Y^{(A)} =
+k\}\)</span> denote the probability of an outcome in category <span class="math inline">\(k\)</span> under treatment <span class="math inline">\(A\)</span>. The Mann-Whitney estimand <span class="math inline">\(\phi\)</span> is the probability of having an
+outcome as good or better under the treatment arm relative to control
+with an adjustment for ties:</p>
+<p><span class="math display">\[\phi = Pr\{Y^{(T)} &gt; Y^{(C)}\} +
+\frac{1}{2} Pr\{Y^{(T)} = Y^{(C)}\}\]</span></p>
+<p>This is also known as the competing probability. The
+precision/information depends on <span class="math inline">\(\phi\)</span> <span class="citation">(Fay and
+Malinovsky 2018)</span>:</p>
+<p><span class="math display">\[SE(\delta) \approx \sqrt{\frac{\phi(1 -
+\phi)}{n_{T}n_{C}}\left(1 + \left(\frac{n_{T} + n_{C} -
+2}{2}\right)\left(\frac{\phi}{1 + \phi} + \frac{1 - \phi}{2 - \phi}
+\right)\right)}\]</span></p>
+<p>Alternatively, the precision/information can be obtained from the
+distribution of outcomes under each treatment arm <span class="citation">(Zhao, Rahardja, and Qu 2008)</span>. Let <span class="math inline">\(N = n_{T} + n_{C}\)</span>:</p>
+<p><span class="math display">\[SE(\delta) =
+\sqrt{\frac{1}{12(n_{T}n_{C})}\left(N+1 - \frac{1}{N(N-1)}\right)\sum_{k
+= 1}^{K}(\pi_{T}^{k}n_{T} + \pi_{C}^{k}n_{C})}\]</span></p>
+<p>Expressions for other estimands can be obtained elsewhere <span class="citation">(Jennison and Turnbull 1999)</span>. In practice, the
+parameters in these expressions are not precisely known a priori. The
+advantage of an information-adaptive design is that the sample size is
+not fixed a priori based on estimates of these parameters, but adapts
+automatically to the precision of the accruing data.</p>
+<hr />
+</div>
+<div id="covariate-adjustment-in-randomized-trials" class="section level3">
+<h3>Covariate Adjustment in Randomized Trials</h3>
+<p>Covariate adjusted analyses can also give greater precision than an
+unadjusted analyses without introducing more stringent assumptions,
+however the amount of precision gained in adjusted analyses are also not
+precisely known a priori <span class="citation">(Benkeser et al.
+2020)</span>. Instead of predicating the design on assumptions about the
+potential gain in precision from covariate adjustment, a
+precision-adaptive design automatically adjusts the sample size
+accordingly.</p>
+<p>The relative efficiency of a covariate adjusted estimator to an
+unadjusted estimator is <span class="math inline">\(RE_{A/U} =
+Var(\theta_{U})/Var(\theta_{A})\)</span>. The relative change in
+variance of a covariate-adjusted analysis to an unadjusted analysis
+is:</p>
+<p><span class="math display">\[RCV_{A/U} = \frac{Var(\theta_{A}) -
+Var(\theta_{U})}{Var(\theta_{U})} = \frac{1}{RE_{A/U}} - 1\]</span>
+Alternatively, <span class="math inline">\(RE_{A/U} = 1/(1 +
+RCV_{A/U})\)</span>: If a covariate adjusted analysis has a relative
+efficiency of 1.25, the relative change in variance would be -0.2, or a
+-20% change in variance. Since precision is the inverse of variance, the
+relative change in precision of a covariate-adjusted analysis to an
+unadjusted analysis is:</p>
+<p><span class="math display">\[RCP_{A/U} = \frac{1/Var(\theta_{A}) -
+1/Var(\theta_{U})}{1/Var(\theta_{U})} = Var(\theta_{U})/Var(\theta_{A})
+- 1 = RE_{A/U} - 1\]</span> Alternatively, <span class="math inline">\(RE_{A/U} = 1 + RCP_{A/U}\)</span>: If a covariate
+adjusted analysis has a relative efficiency of 1.25, the relative change
+in precision would be 0.25, or a 25% change in precision.</p>
+<hr />
+</div>
+<div id="sequential-analyses" class="section level3">
+<h3>Sequential Analyses</h3>
+<p>Pre-planned interim analyses allow investigators to stop a randomized
+trial early for efficacy or futility <span class="citation">(Jennison
+and Turnbull 1999)</span>. Precision-adaptive trials can integrate both
+interim analyses and covariate adjustment, using a broad class of
+methods <span class="citation">(Van Lancker, Betz, and Rosenblum
+2022)</span>. <span class="citation">Mehta and Tsiatis (2001)</span>
+illustrate information-adaptive designs in practice. For a tutorial on
+implementing interim analyses, see <span class="citation">Lakens,
+Pahlke, and Wassmer (2021)</span>.</p>
+</div>
+<div id="references" class="section level3 unnumbered">
+<h3 class="unnumbered">References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Benkeser2020" class="csl-entry">
+Benkeser, David, Iván Dı́az, Alex Luedtke, Jodi Segal, Daniel
+Scharfstein, and Michael Rosenblum. 2020. <span>“Improving Precision and
+Power in Randomized Trials for <span>COVID</span>-19 Treatments Using
+Covariate Adjustment, for Binary, Ordinal, and Time-to-Event
+Outcomes.”</span> <em>Biometrics</em> 77 (4): 1467–81. <a href="https://doi.org/10.1111/biom.13377">https://doi.org/10.1111/biom.13377</a>.
+</div>
+<div id="ref-Fay2018" class="csl-entry">
+Fay, Michael P., and Yaakov Malinovsky. 2018. <span>“Confidence
+Intervals of the Mann-Whitney Parameter That Are Compatible with the
+Wilcoxon-Mann-Whitney Test.”</span> <em>Statistics in Medicine</em> 37
+(27): 3991–4006. <a href="https://doi.org/10.1002/sim.7890">https://doi.org/10.1002/sim.7890</a>.
+</div>
+<div id="ref-Jennison1999" class="csl-entry">
+Jennison, Christopher, and Bruce W. Turnbull. 1999. <em>Group Sequential
+Methods with Applications to Clinical Trials</em>. Chapman;
+Hall/<span>CRC</span>. <a href="https://doi.org/10.1201/9780367805326">https://doi.org/10.1201/9780367805326</a>.
+</div>
+<div id="ref-Lakens2021" class="csl-entry">
+Lakens, Daniel, Friedrich Pahlke, and Gernot Wassmer. 2021. <span>“Group
+Sequential Designs: A Tutorial,”</span> January. <a href="https://doi.org/10.31234/osf.io/x4azm">https://doi.org/10.31234/osf.io/x4azm</a>.
+</div>
+<div id="ref-Mehta2001" class="csl-entry">
+Mehta, Cyrus R., and Anastasios A. Tsiatis. 2001. <span>“Flexible Sample
+Size Considerations Using Information-Based Interim Monitoring.”</span>
+<em>Drug Information Journal</em> 35 (4): 1095–1112. <a href="https://doi.org/10.1177/009286150103500407">https://doi.org/10.1177/009286150103500407</a>.
+</div>
+<div id="ref-VanLancker2022" class="csl-entry">
+Van Lancker, Kelly, Joshua Betz, and Michael Rosenblum. 2022.
+<span>“Combining Covariate Adjustment with Group Sequential, Information
+Adaptive Designs to Improve Randomized Trial Efficiency.”</span>
+<em>arXiv Preprint arXiv:1409.0473</em>. <a href="https://doi.org/10.48550/ARXIV.2201.12921">https://doi.org/10.48550/ARXIV.2201.12921</a>.
+</div>
+<div id="ref-Zhao2008" class="csl-entry">
+Zhao, Yan D., Dewi Rahardja, and Yongming Qu. 2008. <span>“Sample Size
+Calculation for the Wilcoxon<span></span>mann<span></span>whitney Test
+Adjusting for Ties.”</span> <em>Statistics in Medicine</em> 27 (3):
+462–68. <a href="https://doi.org/10.1002/sim.2912">https://doi.org/10.1002/sim.2912</a>.
+</div>
+</div>
+</div>

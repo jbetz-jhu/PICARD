@@ -1,0 +1,40 @@
+---
+title: "Untitled"
+subtitle: "Untitled"
+author: "Josh Betz (jbetz@jhu.edu)"
+date: "2023-10-20"
+output: html_fragment
+bibliography:
+  - "../bibtex_files/covariate_adjustment.bib"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Using This Software:
+
+  1. **Choose an outcome type and the smallest meaningful effect:** For a continous outcome, analyses are based on a difference in means. For a binary outcome, analyses are based on a risk difference (i.e. difference in proportions). For an ordinal outcome, analyses are based on the [Mann-Whitney estimand](https://covariateadjustment.github.io/estimands.html#mann-whitney-m-w-estimand) or the distribution of outcomes under treatment and control.
+  2. **Specify outcome parameters, separated by commas:** For continuous outcomes, enter the standard deviation in each treatment arm: these values should all be positive. For binary outcomes, enter the event probability under the treatment arm. If using the distribution function for an ordinal outcome, enter the probability of each outcome category in each treatment arm.
+  3. **Choose the study design:** This includes the number of interim analyses, their timing, and the decision rules applied at each analysis. For more information about the designs implemented, see the documentation on the [`rpact` package](https://cran.r-project.org/web/packages/rpact/index.html) [@rpact_package]. See the `Background` tab for more information and references on group sequential designs.
+
+Once these parameters are specified, plots will show the sample sizes at which interim analyses might occur under different assumptions about the outcome distribution. **Note:** these sample sizes are approximate values based on asymptotic approximations. Actual levels of information vary: simulation can be used to provide interval estimates for sample size requirements. These simulations can be provided by a statistical collaborator.
+
+
+
+
+### Monitoring Information-Based Trials
+
+The [GSDCovAdj](https://github.com/kelvlanc/GSDCovAdj) package can be used to monitor information levels, conduct analyses, perform testing and inference [@VanLancker2022]. 
+
+
+
+### Testing and Validation
+
+Software testing and documentation can be found in [Github](). Report any bugs by opening a [Github Issue](). 
+
+
+
+
+### References
+

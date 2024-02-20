@@ -1,0 +1,62 @@
+
+
+
+<div id="using-this-software" class="section level3">
+<h3>Using This Software:</h3>
+<ol style="list-style-type: decimal">
+<li><strong>Choose an outcome type and the smallest meaningful
+effect:</strong> For a continous outcome, analyses are based on a
+difference in means. For a binary outcome, analyses are based on a risk
+difference (i.e. difference in proportions). For an ordinal outcome,
+analyses are based on the <a href="https://covariateadjustment.github.io/estimands.html#mann-whitney-m-w-estimand">Mann-Whitney
+estimand</a> or the distribution of outcomes under treatment and
+control.</li>
+<li><strong>Specify outcome parameters, separated by commas:</strong>
+For continuous outcomes, enter the standard deviation in each treatment
+arm: these values should all be positive. For binary outcomes, enter the
+event probability under the treatment arm. If using the distribution
+function for an ordinal outcome, enter the probability of each outcome
+category in each treatment arm.</li>
+<li><strong>Choose the study design:</strong> This includes the number
+of interim analyses, their timing, and the decision rules applied at
+each analysis. For more information about the designs implemented, see
+the documentation on the <a href="https://cran.r-project.org/web/packages/rpact/index.html"><code>rpact</code>
+package</a> <span class="citation">(Wassmer and Pahlke 2023)</span>. See
+the <code>Background</code> tab for more information and references on
+group sequential designs.</li>
+</ol>
+<p>Once these parameters are specified, plots will show the sample sizes
+at which interim analyses might occur under different assumptions about
+the outcome distribution. <strong>Note:</strong> these sample sizes are
+approximate values based on asymptotic approximations. Actual levels of
+information vary: simulation can be used to provide interval estimates
+for sample size requirements. These simulations can be provided by a
+statistical collaborator.</p>
+</div>
+<div id="monitoring-information-based-trials" class="section level3">
+<h3>Monitoring Information-Based Trials</h3>
+<p>The <a href="https://github.com/kelvlanc/GSDCovAdj">GSDCovAdj</a>
+package can be used to monitor information levels, conduct analyses,
+perform testing and inference <span class="citation">(Van Lancker, Betz,
+and Rosenblum 2022)</span>.</p>
+</div>
+<div id="testing-and-validation" class="section level3">
+<h3>Testing and Validation</h3>
+<p>Software testing and documentation can be found in <a href>Github</a>. Report any bugs by opening a <a href>Github
+Issue</a>.</p>
+</div>
+<div id="references" class="section level3 unnumbered">
+<h3 class="unnumbered">References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-VanLancker2022" class="csl-entry">
+Van Lancker, Kelly, Joshua Betz, and Michael Rosenblum. 2022.
+<span>“Combining Covariate Adjustment with Group Sequential, Information
+Adaptive Designs to Improve Randomized Trial Efficiency.”</span>
+<em>arXiv Preprint arXiv:1409.0473</em>. <a href="https://doi.org/10.48550/ARXIV.2201.12921">https://doi.org/10.48550/ARXIV.2201.12921</a>.
+</div>
+<div id="ref-rpact_package" class="csl-entry">
+Wassmer, Gernot, and Friedrich Pahlke. 2023. <em>Rpact: Confirmatory
+Adaptive Clinical Trial Design and Analysis</em>. <a href="https://CRAN.R-project.org/package=rpact">https://CRAN.R-project.org/package=rpact</a>.
+</div>
+</div>
+</div>
