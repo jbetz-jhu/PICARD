@@ -5,7 +5,7 @@ author: "Josh Betz (jbetz@jhu.edu)"
 date: "2023-10-20"
 output: html_fragment
 bibliography:
-  - "../bibtex_files/covariate_adjustment.bib"
+  - "covariate_adjustment.bib"
 ---
 
 ```{r setup, include=FALSE}
