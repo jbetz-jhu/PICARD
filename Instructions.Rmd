@@ -31,7 +31,7 @@ The [GSDCovAdj](https://github.com/kelvlanc/GSDCovAdj) package can be used to mo
 
 ### Testing and Validation
 
-Software testing and documentation can be found in [Github](). Report any bugs by opening a [Github Issue](). 
+Software testing and documentation can be found in [Github](https://github.com/jbetz-jhu/PICARD). Report any bugs by opening a [Github Issue](https://github.com/jbetz-jhu/PICARD/issues). 
 
 
 

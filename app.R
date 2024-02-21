@@ -1633,6 +1633,13 @@ server <-
       DT::renderDT(
         DT::datatable(
           data = analysis_times_table(),
+          options = 
+            list(
+              lengthMenu = 
+                list(c(25, 100, -1),
+                     c('25', '100', 'All')),
+              pageLength = -1
+          ),
           rownames = FALSE
         )
       )
@@ -1876,6 +1883,9 @@ server <-
         }
       )
   }
+
+
+
 
 # Run the application 
 shiny::shinyApp(ui = ui, server = server)
