@@ -1096,6 +1096,32 @@ server <-
       })
     
     
+    
+    type_beta_spending <-
+      shiny::reactive({
+        
+        shiny::req(
+          gsd_validation$is_valid(),
+        )
+        
+        if(input$gsd_alpha_spending == "Fixed Sample Size") {
+          return(NULL)
+        } else {
+          return(
+            switch(
+              EXPR = input$gsd_beta_spending,
+              "O'Brien-Fleming (OBF)" = "bsOF",
+              "Pocock" = "bsP",
+              "Kim-DeMets" = "bsKD",
+              "Hwang-Shi-DeCani" = "bsHSD",
+              NA
+            )
+          )
+        }
+      })
+    
+    
+    
     test_type <-
       shiny::reactive({
         if(input$test_type == "1-Sided"){
@@ -1170,6 +1196,7 @@ server <-
           beta = 1 - input$power,
           informationRates = design_info_fraction(),
           typeOfDesign = design_label(),
+          typeBetaSpending = type_beta_spending(),
           gammaA = gamma_a,
           gammaB = gamma_b
         )
@@ -1494,7 +1521,7 @@ server <-
                     "n_per_arm",
                     "information_adjusted", "info_fraction_recalc")
             )
-          ) |> 
+          ) |>
           dplyr::mutate(
             information_adjusted =
               round(information_adjusted, digits = 2),
@@ -1636,8 +1663,8 @@ server <-
           options = 
             list(
               lengthMenu = 
-                list(c(25, 100, -1),
-                     c('25', '100', 'All')),
+                list(c(10, 25, 50, 100, -1),
+                     c('10', '25', '50', '100', 'All')),
               pageLength = -1
           ),
           rownames = FALSE

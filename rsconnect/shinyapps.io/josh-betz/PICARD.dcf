@@ -5,8 +5,9 @@ account: josh-betz
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 11282057
-bundleId: 8278052
+bundleId: 8495972
 url: https://josh-betz.shinyapps.io/PICARD/
 version: 1
 asMultiple: FALSE
 asStatic: FALSE
+ignoredFiles: presentations/Planning_Information_Monitored_Designs_with_PICARD.pdf|presentations/Planning_Information_Monitored_Designs_with_PICARD.qmd
